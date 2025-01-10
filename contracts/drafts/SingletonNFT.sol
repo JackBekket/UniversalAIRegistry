@@ -29,7 +29,7 @@ abstract contract SingletonNFT is ERC721URIStorage, Ownable{
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
-        return "https://telegra.ph/file/";
+        return "";  // TODO: add base_url for model card?
     }
 
 

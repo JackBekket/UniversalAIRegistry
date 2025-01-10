@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 // direct imports
 //import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
-contract FactoryNFT is Ownable {
+abstract contract FactoryNFT is Ownable {
 
 
 event CollectionCreated(address indexed creator, address collection);
