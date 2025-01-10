@@ -25,7 +25,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 
 // collection, singleton NFT(?)
-contract SampleNFT is ERC721URIStorage{
+contract LLM is ERC721URIStorage{
     uint256 token_ids_count;
     string Author;
     string ModelName;
