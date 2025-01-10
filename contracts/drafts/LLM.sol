@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 
 /**
- * @title 
+ * @title LLM as NFT
  * @author zer0_eX (JackBekket) 
  * @notice
  * 
@@ -27,9 +27,16 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 // collection, singleton NFT(?)
 contract SampleNFT is ERC721URIStorage{
     uint256 token_ids_count;
+    string Author;
+    string ModelName;
+    uint256 Price;
+    address author_wallet;
 
-    constructor(string memory name_, string memory smbl_) ERC721(name_, smbl_) ERC721URIStorage() {
-
+    constructor(string memory name_, string memory smbl_, string memory author_, string memory model_name_, uint256 price, address wallet) ERC721(name_, smbl_) ERC721URIStorage() {
+        Author = author_;   // 'TheDrummer' -- hf user
+        ModelName = model_name_; // 'Tiger-Gemma-9B-v1-GGUF' -- repo of model
+        Price = price;          // price per token to go as royalty
+        author_wallet = wallet; // author wallet
     }
 
 
@@ -42,8 +49,7 @@ contract SampleNFT is ERC721URIStorage{
 
 
     /**
-     *  @dev create nft (single record in this contract) with provided file_id and returns token_id
-     *  @param file_id unique file_id string obtained from telegram(?)
+     *  
      */
     function CreateItem(string memory file_id) public returns (uint256 token_id) {
         token_ids_count +=1;
