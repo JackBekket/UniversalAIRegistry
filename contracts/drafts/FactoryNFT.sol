@@ -8,9 +8,6 @@ import './LLM.sol';
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-// direct imports
-//import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
-
 abstract contract FactoryNFT is Ownable {
 
 
@@ -34,8 +31,6 @@ constructor() {
      *  @param name_ name of collection
      *  @param smbl_ symbol of collection
      *  
-     *  *IMPORTANT* -- as this function creates new contract -- it may be very expensive buy gas cost
-     *  if user just want to create single nft token, it should use SingletonNFT.CreateItem(file_id) instead
      */
     function CreateCollection(string memory name_, string memory smbl_, string memory author_,string memory model_name_, uint256 price, address wallet) public returns (address) {
         address collection_address = address(new LLM(name_,smbl_,author_,model_name_,price,msg.sender));
